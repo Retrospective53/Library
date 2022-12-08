@@ -35,10 +35,12 @@ function addBookToLibrary(title, author, pages, read) {
 const table = document.querySelector('.mainTable');
 
 function toTable() {
+    rowsToDelete = document.getElementsByClassName('test');
+
+    const rowStartsFrom = rowsToDelete.length
 
     for (let i = 0; i < myLibrary.length; i++) {
         const newRow = document.createElement('tr');
-        newRow.className = 'test';
         const bookTitle = document.createElement('td');
         bookTitle.textContent = myLibrary[i].title;
         const bookAuthor = document.createElement('td');
@@ -47,6 +49,8 @@ function toTable() {
         bookPages.textContent = myLibrary[i].pages;
         const bookRead = document.createElement('td');
         bookRead.textContent = myLibrary[i].read;
+        
+        newRow.className = `test item-${i+rowStartsFrom}`;
 
         newRow.appendChild(bookTitle);
         newRow.appendChild(bookAuthor);
@@ -57,9 +61,15 @@ function toTable() {
     }
 }
 
-
-// rowsToDelete = document.getElementsByClassName('test');
 function deleteARow() {
+    // experimenting
+    const header = document.getElementById('header');
+    const rowsToDelete = header.parentNode.rows[header.rowIndex + 1]; // ambil row pertama setelah header
+
+    if (rowsToDelete) rowsToDelete.remove() // remove
+
+    /* -- Ini agak neh 
+    
     rowsToDelete = document.getElementsByClassName('test');
     for (let i = 0; i < rowsToDelete.length; i++) { // ini kondisi length salah sebelumnya 
         let row = rowsToDelete[i];
@@ -67,6 +77,8 @@ function deleteARow() {
 
         row.remove() // pake method remove ini aja karena udh spesifik dapetin elemennya
     }
+
+    -- */
 }
 
 
