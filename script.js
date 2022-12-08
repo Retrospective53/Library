@@ -26,16 +26,17 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(newBook);
 }
 
-/* function displayBook() {
-    myLibrary.forEach(toTable)
-} */
-
-
 // Table
 const table = document.querySelector('.mainTable');
 
 function toTable() {
-
+    
+    rowsToDelete = document.querySelectorAll('.test');
+    
+    for (let i = 0; i < rowsToDelete.length; i++) {
+        rowsToDelete[i].remove();
+    }
+    
     for (let i = 0; i < myLibrary.length; i++) {
         const newRow = document.createElement('tr');
         newRow.className = 'test';
@@ -57,9 +58,11 @@ function toTable() {
     }
 }
 
+function deleteRows() {
+}
 
-rowsToDelete = document.getElementsByClassName('test');
-function deleteARow() {
+
+/* function deleteARow() {
     rowsToDelete = document.getElementsByClassName('test');
     for (let i = 0; i < rowsToDelete.length - 1; i++) {
         let row = rowsToDelete[i];
@@ -80,8 +83,8 @@ function deleteRowws() {
             let row = rowsToDelete[i];
 
             // Delete current element from the table
-            table.deleteRow(row);
+            table.deleteRow(rowsToDelete);
         }
     
     }
-}
+} */
