@@ -58,14 +58,14 @@ function toTable() {
 }
 
 
-rowsToDelete = document.getElementsByClassName('test');
+// rowsToDelete = document.getElementsByClassName('test');
 function deleteARow() {
     rowsToDelete = document.getElementsByClassName('test');
-    for (let i = 0; i < rowsToDelete.length - 1; i++) {
+    for (let i = 0; i < rowsToDelete.length; i++) { // ini kondisi length salah sebelumnya 
         let row = rowsToDelete[i];
-
         // Delete current element from the table
-        table.deleteRow(row);
+
+        row.remove() // pake method remove ini aja karena udh spesifik dapetin elemennya
     }
 }
 
