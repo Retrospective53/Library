@@ -62,7 +62,7 @@ function toTable() {
 }
 
 function deleteARow() {
-    // experimenting
+    // experimenting delete a row
     const header = document.getElementById('header');
     const rowsToDelete = header.parentNode.rows[header.rowIndex + 1]; // ambil row pertama setelah header
 
@@ -79,6 +79,18 @@ function deleteARow() {
     }
 
     -- */
+}
+
+function deleteAllRows() {
+    // experimenting delete all rows
+    const header = document.getElementById('header');
+
+    let parentNode = header.parentNode // ambil parent nodenya
+    // console.log(parentNode.rows)
+
+    while (parentNode.rows.length > 1) {
+        parentNode.removeChild(parentNode.lastChild);
+    } // looping selama ada rows length lebih dari satu (ada data selain header) then remove them
 }
 
 
