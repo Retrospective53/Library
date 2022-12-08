@@ -18,6 +18,7 @@ let myLibrary = [
     {title: 'naruto', author: 'sasuke', pages: 200, read: 'read'},
     {title: 'aqua', author: 'aria', pages: 333, read: 'read'},
 ];
+
 let newBook;
 
 function addBookToLibrary(title, author, pages, read) {
@@ -70,7 +71,7 @@ function deleteARow() {
 
 
 function deleteRowws() {
-    if (typeof newRow !== "undefined") {
+    if (typeof newRow !== undefined) {
         // Get a collection of elements with the class name
         let rowsToDelete = document.getElementsByClassName('test');
         
