@@ -3,7 +3,19 @@ const object1 = {
     Width : 100,
 }
 
-function book(title, author, pages, read) {
+class book {
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+        this.info = function() {
+            return title + ' ' + author + ' ' + pages + ' ' + read
+        }
+    }
+}
+
+/* function book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
@@ -12,7 +24,7 @@ function book(title, author, pages, read) {
         return title + ' ' + author + ' ' + pages + ' ' + read
     }
     
-}   
+}    */
 
 let myLibrary = [
     {title: 'naruto', author: 'sasuke', pages: 200, read: 'read'},
@@ -30,13 +42,23 @@ function addBookToLibrary(title, author, pages, read) {
 const table = document.querySelector('.mainTable');
 
 function toTable() {
+
+    // experimenting delete all rows
+    const header = document.getElementById('header');
+
+    let parentNode = header.parentNode // ambil parent nodenya
+    // console.log(parentNode.rows)
+
+    while (parentNode.rows.length > 1) {
+        parentNode.removeChild(parentNode.lastChild);
+    } // looping selama ada rows length lebih dari satu (ada data selain header) then remove them
     
-    rowsToDelete = document.querySelectorAll('.test');
+    /* rowsToDelete = document.querySelectorAll('.test');
     
     for (let i = 0; i < rowsToDelete.length; i++) {
         rowsToDelete[i].remove();
     }
-    
+     */
     for (let i = 0; i < myLibrary.length; i++) {
         const newRow = document.createElement('tr');
         newRow.className = 'test';
@@ -58,33 +80,14 @@ function toTable() {
     }
 }
 
-function deleteRows() {
+function deleteAllRows() {
+    // experimenting delete all rows
+    const header = document.getElementById('header');
+
+    let parentNode = header.parentNode // ambil parent nodenya
+    // console.log(parentNode.rows)
+
+    while (parentNode.rows.length > 1) {
+        parentNode.removeChild(parentNode.lastChild);
+    } // looping selama ada rows length lebih dari satu (ada data selain header) then remove them
 }
-
-
-/* function deleteARow() {
-    rowsToDelete = document.getElementsByClassName('test');
-    for (let i = 0; i < rowsToDelete.length - 1; i++) {
-        let row = rowsToDelete[i];
-
-        // Delete current element from the table
-        table.deleteRow(row);
-    }
-}
-
-
-function deleteRowws() {
-    if (typeof newRow !== undefined) {
-        // Get a collection of elements with the class name
-        let rowsToDelete = document.getElementsByClassName('test');
-        
-        // Use a for loop to iterate over the collections of elements
-        for (let i = 0; i < rowsToDelete.length; i++) {
-            let row = rowsToDelete[i];
-
-            // Delete current element from the table
-            table.deleteRow(rowsToDelete);
-        }
-    
-    }
-} */
